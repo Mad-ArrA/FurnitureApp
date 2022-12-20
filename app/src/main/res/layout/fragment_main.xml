@@ -1,0 +1,147 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Масштаб:"
+            android:textAlignment="center"
+            android:textColor="#BFB5AA"
+            android:textSize="20sp" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/pgb_scale"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="20dp"
+            android:valueFrom="0.5"
+            android:valueTo="2.0"
+            app:haloColor="#BFB5AA"
+            app:thumbColor="#BFB5AA"
+            app:tickColorInactive="#B9AFA4"
+            app:trackColorActive="#B9AFA4"
+            app:trackColorInactive="#B9AFA4" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/pgb_x"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:valueFrom="0.0"
+            android:valueTo="360.0"
+            android:visibility="gone" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/pgb_z"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:valueFrom="0.0"
+            android:valueTo="360.0"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:elevation="2dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Поворот:"
+            android:textAlignment="center"
+            android:textColor="#BFB5AA"
+            android:textSize="20sp" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/pgb_y"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_marginVertical="20dp"
+            android:valueFrom="0.0"
+            android:valueTo="360.0"
+            app:haloColor="#BFB4AA"
+            app:thumbColor="#B9AFA4"
+            app:tickColorInactive="#B9AFA4"
+            app:trackColorActive="#B9AFA4"
+            app:trackColorInactive="#B9AFA4" />
+    </LinearLayout>
+
+    <io.github.sceneview.ar.ArSceneView
+        android:id="@+id/sceneView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/actionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/translucent"
+        android:gravity="center_vertical|left"
+        android:text="@string/place_object"
+        android:textColor="@android:color/white"
+        android:visibility="gone"
+        app:icon="@drawable/ic_anchor"
+        app:iconGravity="textStart"
+        app:iconTint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/compose_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/loadingView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#40000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            app:indicatorSize="64dp"
+            app:trackColor="#3FFFFFFF" />
+    </FrameLayout>
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/compose_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:elevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
